@@ -24,6 +24,7 @@
 import React from "react";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
+import ScrollButton from "./ScrollButton";
 
 // const Tech = () => {
 //   return (
@@ -249,7 +250,14 @@ const Tech = () => {
         </div>
 
       </div>
+      
+      {/* CENTERED SCROLL BUTTON (NO BLACK BACKGROUND OVERLAY) */}
+      <div className="mt-16 flex justify-center relative z-20">
+        <ScrollButton target="work" />
+      </div>
+
     </div>
+    
   );
 };
 

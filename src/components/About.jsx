@@ -8,6 +8,7 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import ScrollButton from "./ScrollButton";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt
@@ -484,8 +485,11 @@ const About = () => {
           </motion.h1>
 
           <p className="mt-6 text-secondary text-lg leading-[30px] max-w-lg">
-            I create modern, seamless digital experiences with a balance of
-            logic, creativity, and luxury-grade visual refinement.
+            {/* I create modern, seamless digital experiences with a balance of
+            logic, creativity, and luxury-grade visual refinement. */}
+            like creating products that look good and feel comfortable to interact with.
+            Whether it's a landing page or a full web application, I try to keep everything intuitive, well-structured, and clear.
+            My goal is to make things that users can enjoy without overthinking.
           </p>
         </motion.div>
 
@@ -505,10 +509,12 @@ const About = () => {
             </h2>
 
             <p className="mt-6 text-secondary text-[17px] text-center leading-[28px]">
-              I'm a developer who focuses on precision, clarity, and refined
+              {/* I'm a developer who focuses on precision, clarity, and refined
               design. I transform ideas into seamless products, combining strong
               engineering with a luxury-grade aesthetic and thoughtful
-              user-experience.
+              user-experience. */}
+
+              I’m a developer who values clarity, structure, and craft. I turn ideas into reliable, well-designed products with a focus on usability, performance, and clean execution.
             </p>
 
             {/* -------------------- underline + CV button -------------------- */}
@@ -519,7 +525,7 @@ const About = () => {
 
               {/* -------------------- ULTRA-HIGHLIGHT CV BUTTON -------------------- */}
               <motion.a
-                href="/your-cv.pdf"
+                href="./NitinCv.pdf"
                 download
                 whileHover={{
                   scale: 1.12,
@@ -547,14 +553,21 @@ const About = () => {
                   blur-lg opacity-40 will-change-transform"
                 />
 
-                <span className="relative z-10">View My CV</span>
+                <span className="relative z-10">Download My CV</span>
               </motion.a>
             </div>
           </div>
         </motion.div>
+        
+          
+        
+        
+
 
       </div>
+      <ScrollButton target="tech" />
     </section>
+    
   );
 };
 

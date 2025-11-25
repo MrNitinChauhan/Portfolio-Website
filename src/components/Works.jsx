@@ -7,6 +7,7 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import ScrollButton from "./ScrollButton"
 
 // const ProjectCard = ({
 //   index,
@@ -201,6 +202,11 @@ const Works = () => {
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
+
+        
+      </div>
+      <div className="mt-16 flex justify-center relative z-20">
+        <ScrollButton target="contact" />
       </div>
     </div>
   );

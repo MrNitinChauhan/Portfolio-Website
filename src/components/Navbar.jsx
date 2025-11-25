@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { logo,logo2,menu, close } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -26,14 +26,26 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-3 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+    // <nav
+    //   className={`${
+    //     styles.paddingX
+    //   } w-full flex items-center py-5 fixed top-3 z-20 ${
+    //     scrolled ? "bg-primary" : "bg-transparent"
+    //   }`}
+    // >
+
+
+     <nav
+      className={`w-full p-5 fixed top-3 z-20 transition-all duration-300 `}
+
+      // ${
+      //   scrolled ? "bg-[#0e0e11]/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.05)]" : "bg-transparent"
+      // }`
+    > 
+      {/* <div className='w-full flex justify-between items-center max-w-7xl mx-auto'> */}
+      <div className='w-full px-6 flex justify-between items-center'>
+
+
         <Link
           to='/'
           className='flex items-center gap-2'
@@ -42,7 +54,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img src={logo2} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Nitin &nbsp;
             <span className='sm:block hidden'>| Developer</span>

@@ -138,12 +138,200 @@
 
 
 
+// import React, { useRef, useState } from "react";
+// import { motion } from "framer-motion";
+// import emailjs from "@emailjs/browser";
+
+// import { SectionWrapper } from "../hoc";
+// import { slideIn } from "../utils/motion";
+
+// const Contact = () => {
+//   const formRef = useRef();
+//   const [form, setForm] = useState({
+//     name: "",
+//     email: "",
+//     message: "",
+//   });
+
+//   const [loading, setLoading] = useState(false);
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     emailjs
+//       .send(
+//         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+//         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+//         {
+//           from_name: form.name,
+//           to_name: "Me",
+//           from_email: form.email,
+//           message: form.message,
+//         },
+//         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+//       )
+//       .then(
+//         () => {
+//           setLoading(false);
+//           alert("Thanks! I’ll get back to you soon.");
+//           setForm({ name: "", email: "", message: "" });
+//         },
+//         (error) => {
+//           setLoading(false);
+//           alert("Something went wrong. Please try again.");
+//         }
+//       );
+//   };
+
+//   return (
+//     <div className="relative w-full py-24 overflow-hidden">
+
+//       {/* LUXURY GLOW BACKGROUND */}
+//       <div className="absolute inset-0 pointer-events-none">
+//         <div className="absolute top-0 left-0 w-[500px] h-[500px] 
+//                         bg-[#7F5AF0]/25 blur-[150px]" />
+//         <div className="absolute bottom-0 right-0 w-[450px] h-[450px] 
+//                         bg-[#2CB67D]/25 blur-[140px]" />
+//       </div>
+
+//       {/* CONTENT WRAPPER */}
+//       <div className="relative z-10 max-w-6xl mx-auto px-6">
+
+//         {/* CENTERED HEADING */}
+//         <div className="text-center mb-16">
+//           <h2 className="text-5xl font-extrabold text-white tracking-wide">
+//             Contact Me
+//           </h2>
+//           <div className="w-28 h-[4px] bg-gradient-to-r 
+//                           from-[#2CB67D] to-[#7F5AF0] mx-auto mt-3 rounded-full" />
+//           <p className="text-[#c7c7c7] max-w-xl mx-auto mt-4 text-[16px] leading-[28px]">
+//             Feel free to reach out for collaborations, work opportunities, or anything you’d like to share.
+//           </p>
+//         </div>
+
+//         {/* FORM + RIGHT SIDE */}
+//         <div className="grid lg:grid-cols-2 gap-14 max-w-5xl mx-auto items-start">
+
+
+//           {/* ----- FORM ----- */}
+//           <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
+//             <form
+//               ref={formRef}
+//               onSubmit={handleSubmit}
+//               className="bg-black/40 backdrop-blur-2xl rounded-2xl 
+//                          border border-white/10 p-10 shadow-[0_0_30px_rgba(255,255,255,0.05)] 
+//                          flex flex-col gap-8"
+//             >
+//               {/* INPUTS */}
+//               <label className="flex flex-col">
+//                 <span className="text-white font-medium mb-2">Your Name</span>
+//                 <input
+//                   type="text"
+//                   name="name"
+//                   value={form.name}
+//                   onChange={handleChange}
+//                   placeholder="What's your good name?"
+//                   className="glass-input"
+//                 />
+//               </label>
+
+//               <label className="flex flex-col">
+//                 <span className="text-white font-medium mb-2">Your Email</span>
+//                 <input
+//                   type="email"
+//                   name="email"
+//                   value={form.email}
+//                   onChange={handleChange}
+//                   placeholder="What's your email?"
+//                   className="glass-input"
+//                 />
+//               </label>
+
+//               <label className="flex flex-col">
+//                 {/* <span className="text-white font-medium mb-2">Your Message</span> */}
+//                 <span className="text-white font-medium mb-3 text-[15px] tracking-wide">
+//                            Your Name
+//                 </span>
+
+//                 <textarea
+//                   rows={6}
+//                   name="message"
+//                   value={form.message}
+//                   onChange={handleChange}
+//                   placeholder="What would you like to say?"
+//                   className="glass-input resize-none"
+//                 />
+//               </label>
+
+//               {/* LUXURY SUBMIT BUTTON */}
+//               <button
+//                 type="submit"
+//                 className="px-10 py-3 rounded-full bg-gradient-to-r 
+//                            from-[#7F5AF0] via-[#A855F7] to-[#2CB67D]
+//                            font-semibold text-white text-[16px] uppercase 
+//                            shadow-[0_0_25px_rgba(127,90,240,0.35)]
+//                            transition-all duration-300 hover:scale-105"
+//               >
+//                 {loading ? "Sending..." : "Send Message"}
+//               </button>
+//             </form>
+//           </motion.div>
+
+//           {/* ----- RIGHT SIDE: LIGHTWEIGHT ELEGANT GRAPHIC ----- */}
+//           <motion.div
+//             variants={slideIn("right", "tween", 0.2, 1)}
+//             className="flex items-center justify-center"
+//           >
+//             <div className="relative flex items-center justify-center">
+
+//               {/* Dark vignette for contrast */}
+//               <div className="absolute w-80 h-80 rounded-full bg-black/40 blur-3xl opacity-70"></div>
+
+//               {/* Gradient Circle */}
+//                 <div className="w-72 h-72 rounded-full bg-gradient-to-br 
+//                                 from-[#7F5AF0]/60 to-[#2CB67D]/60 
+//                                 shadow-[0_0_40px_rgba(255,255,255,0.1)]
+//                                 backdrop-blur-3xl border border-white/10
+//                                 animate-pulse" />
+
+//                 {/* Inner glass circle */}
+//                 <div className="absolute w-52 h-52 rounded-full border border-white/20 
+//                                 bg-white/5 backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.15)] 
+//                                 flex items-center justify-center">
+//                   <p className="text-white opacity-80 text-center leading-7 px-4">
+//                     Let's collaborate <br /> 
+//                     and build something amazing.
+//                   </p>
+//                 </div>
+//                 </div>
+
+//           </motion.div>
+
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SectionWrapper(Contact, "contact");
+
+
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+
+// // ---- ICONS (use your own images) ----
+import emailIcon from "../assets/email.png";
+import linkedinIcon from "../assets/linkedin.png";
+import githubIcon from "../assets/github.png";
 
 const Contact = () => {
   const formRef = useRef();
@@ -181,7 +369,7 @@ const Contact = () => {
           alert("Thanks! I’ll get back to you soon.");
           setForm({ name: "", email: "", message: "" });
         },
-        (error) => {
+        () => {
           setLoading(false);
           alert("Something went wrong. Please try again.");
         }
@@ -191,34 +379,29 @@ const Contact = () => {
   return (
     <div className="relative w-full py-24 overflow-hidden">
 
-      {/* LUXURY GLOW BACKGROUND */}
+      {/* LUXURY BACKGROUND GLOW */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] 
-                        bg-[#7F5AF0]/25 blur-[150px]" />
-        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] 
-                        bg-[#2CB67D]/25 blur-[140px]" />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7F5AF0]/25 blur-[150px]" />
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-[#2CB67D]/25 blur-[140px]" />
       </div>
 
-      {/* CONTENT WRAPPER */}
+      {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
 
-        {/* CENTERED HEADING */}
+        {/* HEADING */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-extrabold text-white tracking-wide">
             Contact Me
           </h2>
-          <div className="w-28 h-[4px] bg-gradient-to-r 
-                          from-[#2CB67D] to-[#7F5AF0] mx-auto mt-3 rounded-full" />
+          <div className="w-28 h-[4px] bg-gradient-to-r from-[#2CB67D] to-[#7F5AF0] mx-auto mt-3 rounded-full" />
           <p className="text-[#c7c7c7] max-w-xl mx-auto mt-4 text-[16px] leading-[28px]">
             Feel free to reach out for collaborations, work opportunities, or anything you’d like to share.
           </p>
         </div>
 
-        {/* FORM + RIGHT SIDE */}
         <div className="grid lg:grid-cols-2 gap-14 max-w-5xl mx-auto items-start">
 
-
-          {/* ----- FORM ----- */}
+          {/* ✨ FORM */}
           <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
             <form
               ref={formRef}
@@ -227,7 +410,7 @@ const Contact = () => {
                          border border-white/10 p-10 shadow-[0_0_30px_rgba(255,255,255,0.05)] 
                          flex flex-col gap-8"
             >
-              {/* INPUTS */}
+
               <label className="flex flex-col">
                 <span className="text-white font-medium mb-2">Your Name</span>
                 <input
@@ -253,11 +436,7 @@ const Contact = () => {
               </label>
 
               <label className="flex flex-col">
-                {/* <span className="text-white font-medium mb-2">Your Message</span> */}
-                <span className="text-white font-medium mb-3 text-[15px] tracking-wide">
-                           Your Name
-                </span>
-
+                <span className="text-white font-medium mb-2">Your Message</span>
                 <textarea
                   rows={6}
                   name="message"
@@ -268,7 +447,6 @@ const Contact = () => {
                 />
               </label>
 
-              {/* LUXURY SUBMIT BUTTON */}
               <button
                 type="submit"
                 className="px-10 py-3 rounded-full bg-gradient-to-r 
@@ -279,37 +457,56 @@ const Contact = () => {
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
+
             </form>
           </motion.div>
 
-          {/* ----- RIGHT SIDE: LIGHTWEIGHT ELEGANT GRAPHIC ----- */}
+          {/* ✨ RIGHT SIDE — CONTACT INFO PANEL */}
           <motion.div
             variants={slideIn("right", "tween", 0.2, 1)}
-            className="flex items-center justify-center"
+            className="bg-black/40 backdrop-blur-xl rounded-2xl 
+                       border border-white/10 p-10 shadow-[0_0_25px_rgba(255,255,255,0.05)]"
           >
-            <div className="relative flex items-center justify-center">
+            <h3 className="text-3xl font-bold text-white mb-6">Let’s talk</h3>
 
-              {/* Dark vignette for contrast */}
-              <div className="absolute w-80 h-80 rounded-full bg-black/40 blur-3xl opacity-70"></div>
+            <div className="flex flex-col gap-8">
 
-              {/* Gradient Circle */}
-                <div className="w-72 h-72 rounded-full bg-gradient-to-br 
-                                from-[#7F5AF0]/60 to-[#2CB67D]/60 
-                                shadow-[0_0_40px_rgba(255,255,255,0.1)]
-                                backdrop-blur-3xl border border-white/10
-                                animate-pulse" />
+              {/* Email */}
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#7F5AF0] to-[#2CB67D] flex items-center justify-center shadow-lg">
+                  <img src={emailIcon} className="w-8" />
+                </div>
+                <div>
+                  <p className="text-[#9bb0c2] text-sm">Email</p>
+                  <p className="text-white font-medium text-lg">mrnitin9631@gmail.com</p>
+                </div>
+              </div>
 
-                {/* Inner glass circle */}
-                <div className="absolute w-52 h-52 rounded-full border border-white/20 
-                                bg-white/5 backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.15)] 
-                                flex items-center justify-center">
-                  <p className="text-white opacity-80 text-center leading-7 px-4">
-                    Let's collaborate <br /> 
-                    and build something amazing.
+              {/* LinkedIn */}
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#7F5AF0] to-[#2CB67D] flex items-center justify-center shadow-lg">
+                  <img src={linkedinIcon} className="w-8" />
+                </div>
+                <div>
+                  <p className="text-[#9bb0c2] text-sm">LinkedIn</p>
+                  <p className="text-white font-medium text-lg">
+                  linkedin.com/in/nitin-chauhan13/
                   </p>
                 </div>
-                </div>
+              </div>
 
+              {/* GitHub */}
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#7F5AF0] to-[#2CB67D] flex items-center justify-center shadow-lg">
+                  <img src={githubIcon} className="w-8" />
+                </div>
+                <div>
+                  <p className="text-[#9bb0c2] text-sm">GitHub</p>
+                  <p className="text-white font-medium text-lg">github.com/MrNitinChauhan</p>
+                </div>
+              </div>
+
+            </div>
           </motion.div>
 
         </div>
@@ -319,4 +516,6 @@ const Contact = () => {
 };
 
 export default SectionWrapper(Contact, "contact");
+
+
 
