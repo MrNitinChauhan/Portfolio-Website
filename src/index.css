@@ -208,3 +208,8 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+
+section {
+  scroll-margin-top: 100px; /* Same height as your header */
+}

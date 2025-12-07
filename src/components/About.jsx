@@ -525,7 +525,7 @@ const About = () => {
 
               {/* -------------------- ULTRA-HIGHLIGHT CV BUTTON -------------------- */}
               <motion.a
-                href="./NitinCv.pdf"
+                href="./NITINCVLAST.pdf"
                 download
                 whileHover={{
                   scale: 1.12,
